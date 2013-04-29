@@ -45,3 +45,17 @@
 [6028:3504:0426/111558:9721841:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
 [3464:5856:0429/103751:5724721:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
 >>>>>>> refs/heads/deuanz_comatooltip
+[5700:6168:0429/115230:10780199:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:6184:0429/115230:10780995:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:6184:0429/115230:10780995:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:6184:0429/115230:10780995:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:6192:0429/115231:10781962:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:6192:0429/115509:10939180:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:6192:0429/115510:10941036:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[5700:5652:0429/115511:10941317:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
+[7052:2828:0429/115522:10952923:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[7052:6172:0429/115522:10952939:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[7052:6176:0429/115522:10952939:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[7052:4940:0429/115524:10954187:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[7052:4940:0429/115536:10966995:ERROR:proxy_resolver_winhttp.cc(94)] WinHttpGetProxyForUrl failed: 12006
+[7052:7056:0429/115537:10967197:ERROR:window_impl.cc(55)] Failed to unregister class Chrome_WidgetWin_0. Error = 1412
