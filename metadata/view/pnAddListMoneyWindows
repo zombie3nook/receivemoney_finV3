@@ -59,16 +59,58 @@
                             "codeClass": null,
                             "userConfig": {
                                 "id": "id",
+                                "overCls": null,
                                 "designer|userClassName": "MyNumberField3",
+                                "errorMsgCls": "poooooopppppppppppppppppppppppoplp",
                                 "fieldLabel": "รหัส",
-                                "msgTarget": "side",
+                                "msgTarget": "title",
                                 "name": "id",
-                                "allowBlank": false,
                                 "emptyText": "รหัสข้อมูล",
                                 "vtype": null,
                                 "hideTrigger": true
                             },
-                            "designerId": "b314e7e4-3c8b-4b61-84b2-6ad5f57922e8"
+                            "designerId": "b314e7e4-3c8b-4b61-84b2-6ad5f57922e8",
+                            "cn": [
+                                {
+                                    "type": "basiceventbinding",
+                                    "reference": {
+                                        "name": "listeners",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "onIdAfterRender",
+                                        "fn": "onIdAfterRender",
+                                        "implHandler": [
+                                            "\r",
+                                            "var view = Ext.create('MyApp.view.pnAddListMoneyWindows');\r",
+                                            "var tip = Ext.create('Ext.tip.ToolTip', {\r",
+                                            "    // The overall target element.\r",
+                                            "    target: view.el,\r",
+                                            "    // Each grid row causes its own separate show and hide.\r",
+                                            "    delegate: view.itemSelector,\r",
+                                            "    // Moving within the row should not hide the tip.\r",
+                                            "    trackMouse: true,\r",
+                                            "    // Render immediately so that tip.body can be referenced prior to the first show.\r",
+                                            "    renderTo: Ext.getBody(),\r",
+                                            "    listeners: {\r",
+                                            "        // Change content dynamically depending on which element triggered the show.\r",
+                                            "        beforeshow: function updateTipBody(tip) {\r",
+                                            "            tip.update('Over company \"' + view.getRecord(tip.triggerElement).get('company') + '\"');\r",
+                                            "       }\r",
+                                            "        }\r",
+                                            "    });\r",
+                                            "//});\r",
+                                            "\r",
+                                            "\r",
+                                            "console.log('kkkkkkkkkkk');"
+                                        ],
+                                        "name": "afterrender",
+                                        "scope": "me"
+                                    },
+                                    "designerId": "096062df-0729-47ca-9bc7-eab78efc618f"
+                                }
+                            ]
                         },
                         {
                             "type": "Ext.form.field.Date",
@@ -146,7 +188,55 @@
                                 "emptyText": "",
                                 "vtype": null
                             },
-                            "designerId": "befc0d42-467b-4c5a-a85a-3a1e4c5d37bc"
+                            "designerId": "befc0d42-467b-4c5a-a85a-3a1e4c5d37bc",
+                            "cn": [
+                                {
+                                    "type": "Ext.XTemplate",
+                                    "reference": {
+                                        "name": "afterLabelTextTpl",
+                                        "type": "object"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "afterLabelTextTpl",
+                                        "implHandler": [
+                                            "<span style=\"color:red;font-weight:100px\" data-qtip=\"Required\">*</span>"
+                                        ],
+                                        "designer|displayName": "afterLabelTextTpl"
+                                    },
+                                    "designerId": "94641eae-abec-421d-8aaa-3675437f59a9"
+                                },
+                                {
+                                    "type": "basicfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "designer|userClassName": "getTip",
+                                        "fn": "getTip",
+                                        "implHandler": [
+                                            "var tip = this.tip;\r",
+                                            "if (!tip) {\r",
+                                            "    tip = this.tip = Ext.widget('tooltip', {\r",
+                                            "        target: this.el,\r",
+                                            "        title: 'Error Details:',\r",
+                                            "        autoHide: false,\r",
+                                            "        anchor: 'top',\r",
+                                            "        mouseOffset: [-11, -2],\r",
+                                            "        closable: true,\r",
+                                            "        constrainPosition: false,\r",
+                                            "        cls: 'errors-tip'\r",
+                                            "    });\r",
+                                            "    tip.show();\r",
+                                            "}\r",
+                                            "return tip;"
+                                        ]
+                                    },
+                                    "designerId": "e50f5b75-bff3-4eb0-a6c8-d71ab10808e1"
+                                }
+                            ]
                         }
                     ]
                 },

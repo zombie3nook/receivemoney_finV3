@@ -46,12 +46,18 @@ false,
                                 {
                                     xtype: 'numberfield',
                                     id: 'id',
+                                    errorMsgCls: 'poooooopppppppppppppppppppppppoplp',
                                     fieldLabel: 'รหัส',
-                                    msgTarget: 'side',
+                                    msgTarget: 'title',
                                     name: 'id',
-                                    allowBlank: false,
                                     emptyText: 'รหัสข้อมูล',
-                                    hideTrigger: true
+                                    hideTrigger: true,
+                                    listeners: {
+                                        afterrender: {
+                                            fn: me.onIdAfterRender,
+                                            scope: me
+                                        }
+                                    }
                                 },
                                 {
                                     xtype: 'datefield',
@@ -85,7 +91,27 @@ false,
                                 },
                                 {
                                     xtype: 'textfield',
+                                    getTip: function() {
+                                        var tip = this.tip;
+                                        if (!tip) {
+                                            tip = this.tip = Ext.widget('tooltip', {
+                                                target: this.el,
+                                                title: 'Error Details:',
+                                                autoHide: false,
+                                                anchor: 'top',
+                                                mouseOffset: [-11, -2],
+                                                closable: true,
+                                                constrainPosition: false,
+                                                cls: 'errors-tip'
+                                            });
+                                            tip.show();
+                                        }
+                                        return tip;
+                                    },
                                     id: 'tellerId',
+                                    afterLabelTextTpl: [
+                                        '<span style="color:red;font-weight:100px" data-qtip="Required">*</span>'
+                                    ],
                                     fieldLabel: 'หมายเลขกำกับ',
                                     msgTarget: 'side',
                                     name: 'tellerId',
@@ -148,6 +174,31 @@ false,
         });
 
         me.callParent(arguments);
+    },
+
+    onIdAfterRender: function(component, eOpts) {
+
+        var view = Ext.create('MyApp.view.pnAddListMoneyWindows');
+        var tip = Ext.create('Ext.tip.ToolTip', {
+            // The overall target element.
+            target: view.el,
+            // Each grid row causes its own separate show and hide.
+            delegate: view.itemSelector,
+            // Moving within the row should not hide the tip.
+            trackMouse: true,
+            // Render immediately so that tip.body can be referenced prior to the first show.
+            renderTo: Ext.getBody(),
+            listeners: {
+                // Change content dynamically depending on which element triggered the show.
+                beforeshow: function updateTipBody(tip) {
+                    tip.update('Over company "' + view.getRecord(tip.triggerElement).get('company') + '"');
+                }
+            }
+        });
+        //});
+
+
+        console.log('kkkkkkkkkkk');
     }
 
 });
